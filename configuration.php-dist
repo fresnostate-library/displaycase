@@ -1,0 +1,44 @@
+<?php
+error_reporting(0);
+
+/**
+ * This file holds the customization settings used by the DisplayCase PHP code.
+ * 
+ * You MUST customize each of the variables below, without breaking the array structure.
+ * Then you MUST "rename" the file by removing the "-dist" from the file extension, so that
+ * it reads only as "configuration.php"
+ *
+ * PHP version 7
+ *
+ * @category   LIBWebApplication
+ * @package    DisplayCase
+ * @author     Steven Orr <sorr@mail.fresnostate.edu>
+ * @copyright  2023 Fresno State Library, Fresno State 
+ * @license    http://opensource.org/licenses/gpl-3.0.html GNU Public License v3
+ * @link       https://github.com/fresnostate-library/displaycase
+*/
+
+/*
+ * The following are hints on what to put in the array below:
+ * 
+ *  - pathFromWebRoot = Do not include start or end slashes. Example: path/to/app
+ *  - redirectURL = Where the visitor is sent, if no tab is provided.
+ *  - breadcrumb = Text and URLs for how many ever layers of breadcrumb links you want, in an array format.
+ *  - orgName = Name of the Organization to append to the page title.
+ *  - googleApiKey = Google API Key obtained by following these instructions:  
+ *          https://support.google.com/googleapi/answer/6158862
+ *  - googleSheetId = Copy the long ID found in the Google Sheet URL, between the "/d/" and "/edit" strings
+ */
+return (object) array(
+    'pathFromWebRoot' => "displaycase",
+    'redirectURL' => "?tab=bad",
+    'breadcrumb' => array(
+        ["Home", "https://www.my-school.edu/library/"],
+        ["GreatGrandParent", "https://www.my-school.edu/library/centers"],
+        ["GrandParent", "https://www.my-school.edu/library/centers/my-group"],
+        ["Parent", "https://www.my-school.edu/library/centers/my-group/collections"]
+    ),
+    'orgName' => "My School Library",
+    'googleApiKey' => "AIzaSy_really-big-assigned-number_Eww",
+    'googleSheetId' => "1ug0i6Nu__CL4saGZolusqlgjmEHJZ9FTsKaJRRLPOtc",
+);

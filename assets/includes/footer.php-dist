@@ -1,0 +1,24 @@
+<?php
+    // PHP code here.
+    date_default_timezone_set( "America/Los_Angeles" );
+    $presentYear = date("Y");
+?>
+
+<!-- START: Custom Page Footer HTML Fragment -->
+
+<footer>
+    <div class="row">
+        <div class="col-3 m-2">
+            <p style="vertical-align: middle;">
+                &#169; <?php echo $presentYear; ?>
+            </p>
+        </div>
+        <div class="col m-2">
+            <p style="vertical-align: middle;">
+                Other footer content goes here.
+            </p>
+        </div>
+    </div>
+</footer>
+
+<!-- END: Custom Page Footer HTML Fragment -->

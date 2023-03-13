@@ -1,0 +1,11 @@
+
+<style>
+/* <!-- START: In-Page Custom CSS for Header and Footer --> */
+
+header, footer { 
+    background-color: #CCC; 
+    width: 100%;
+}
+   
+/* <!-- END: In-Page Custom CSS for Header and Footer --> */
+</style>

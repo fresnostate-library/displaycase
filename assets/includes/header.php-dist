@@ -1,0 +1,15 @@
+<?php
+    // PHP code here.
+?>
+
+<!-- START: Custom Page Header HTML Fragment -->
+
+<header>
+    <div class="row">
+        <div class="col m-4">
+            <h1 style="text-align: center; vertical-align: middle;">Site Header</h1>
+        </div>
+    </div>
+</header>
+
+<!-- END: Custom Page Header HTML Fragment -->
