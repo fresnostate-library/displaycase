@@ -1,5 +1,5 @@
 # DisplayCase 
-A curated and filterable collection of items akin to a physical library display case. This tool aim to create a sortable "visual catalog" of curated content blocks for a digital display case. 
+A curated and filterable collection of items akin to a physical library display case. This tool creates a sortable "visual catalog" of curated content blocks in the guise of a digital display case. 
 
 Each "item" for display is composed of one or more of the following elements: Image, Title, Description, Link and Keywords. A lot of visual impact is gained when all these elements are used together but the only _required_ element, which must be implemented with any combination of the other elements, is the Keywords. **Keywords are the crux of the tool, it facilitates the sorting and filtering action of your DisplayCase; without this feature, you just have a web page.**
 
