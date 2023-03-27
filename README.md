@@ -41,10 +41,10 @@ Google Developer account will be required to [set up an API key](https://support
 
 ### Copy the Web Files
 
-- Ensure that the Apache server is configured to use **.htaccess** files.
+- Ensure that the Apache server is [configured to use](https://httpd.apache.org/docs/2.4/howto/htaccess.html) **.htaccess** files.
 - Create a sub-directory in the Apache webroot. (For example, you could name it "displaycase".)
 - Copy the contents of this code repository, both files and folders, into this new directory.
-- Update the **.htaccess**  file with the correct "RewriteBase" value, which is the path from web root. (If following our suggestions, this value would be "displaycase".) 
+- Update the **.htaccess**  file with the correct "[RewriteBase](https://www.oreilly.com/library/view/apache-the-definitive/0596002033/re127.html)" value, which is the path from web root. (If following our suggestions, this value would be "displaycase".) 
 - Complete the configuration process by inserting accurate values in the "configuration.php" settings file. (There are hints contained within that file.)
 - Activate the "include" files, found in "assets/includes", by removing the "-dist" from the file extension.
 
