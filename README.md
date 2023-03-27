@@ -30,7 +30,7 @@ The following is an overview of how this tool stack should be installed and conf
 - [Create a new Google Sheet](https://www.wikihow.com/Use-Google-Spreadsheets) to hold your data.
 - Using the built-in Google _Sharing_ feature, give permissions to any content editors. (Also, make sure to select the "anyone with a link can **view**" option.)
 - [Rename the first tab](https://edu.gcfglobal.org/en/googlespreadsheets/working-with-multiple-sheets/1/#) to "example" and insert example data by following the [content template](#google-sheet-template).
-- You can either copy data from one of our [Github Example pages](Example DisplayCases) or you can put the following (without the quotes) in Row 4, starting with **A4**: "My Title", "Some Content", "https://picsum.photos/300/450", "#", "test"
+- You can either copy data from one of our [Github Example pages](example-displaycases) or you can put the following (without the quotes) in Row 4, starting with **A4**: "My Title", "Some Content", "https://picsum.photos/300/450", "#", "test"
 
 ### Secure a Google API Key
 
@@ -86,8 +86,13 @@ This section holds more information on certain topics mentioned previously.
 
 ### Google Sheet Template
 
-This section aims to describe the columns and cells required for this tool to function. To understand where this information
-goes, please use understand that columns are named alphabetically and rows are numeric, so the first data cell is **A1** -- Column A and Row 1. 
+This section aims to describe the columns and cells required for this tool to function. First, you should know that Google Sheet is a **free**
+online [spreadsheet](https://www.computerhope.com/jargon/s/spreadsheet.htm) tool. To understand where data is to be placed, 
+you should be comfortable with the idea that in most spreadsheets the columns are named alphabetically and rows are numeric. 
+Consequently, the first data cell in any spreadsheet is referred to as **A1** and is located in Column A and Row 1; the next data cell
+in that row would be **B1** or Column B and Row 1.
+
+With that spreadsheet knowledge in mind, here is the required mapping of your data so that the tool works:
 
 - **A1** : This is the title displayed on the page. (While this is technically _optional_, every page deserves a title, right?)
 - **A2** : This is the descriptive text that is placed below the title. (_Optional_ and can take simple HTML tags.)
