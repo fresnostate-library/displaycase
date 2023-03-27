@@ -101,4 +101,4 @@ With that spreadsheet knowledge in mind, here is the required mapping of your da
 - **A3, B3, C3, D3, E3** : This row only holds the column headings for the data included afterward. (_Optional_ but a good reminder for you; otherwise, Row 3 must exist but will NOT be read.)
 - **Rows 4 and Higher** : This is where your content block data is held. The script will read until it finds a completely empty row. (_Required_ for the purpose of the tool, but too many rows of data will confuse the visitor and slow the page.)
 
-You can use the [Github DisplayCase - Empty](https://webapps.library.fresnostate.edu/github-example/displaycase/empty) example page to visualize what is described in the list above. 
+You can use the [data source](https://docs.google.com/spreadsheets/d/1ug0i6Nu__CL4saGZolusqlgjmEHJZ9FTsKaJRRLPOtc/view#gid=1871925662) for the  [Github DisplayCase - Empty](https://webapps.library.fresnostate.edu/github-example/displaycase/empty) example page to visualize what is described in the template description above. 
