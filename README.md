@@ -73,17 +73,6 @@ Now that you've tested your installation files and established your image storag
 - We suggest that you keep an "example" tab with some data, so that you can quickly use this to troubleshoot in the future.
 - Publish or distribute your new URL (tool folder followed by tab) to your community.
 
-## Example DisplayCases
-
-It should be emphasized that not all content block columns are required to be used on a page. (Sometimes leaving out images is better for a specific purpose, for example.) Here are a few pages with different combinations to inspire you as to how else you can use this tool:
-
- - [Github DisplayCase Example](https://webapps.library.fresnostate.edu/github-example/displaycase/example)
- - [Github DisplayCase - Empty](https://webapps.library.fresnostate.edu/github-example/displaycase/empty)
- - [Github DisplayCase - Titles Only](https://webapps.library.fresnostate.edu/github-example/displaycase/title)
- - [Github DisplayCase - Content Only](https://webapps.library.fresnostate.edu/github-example/displaycase/content)
- - [Github DisplayCase - Images Only](https://webapps.library.fresnostate.edu/github-example/displaycase/image)
-s3-bucket
-
 ## Miscellaneous Information
 
 This section holds more information on certain topics mentioned previously.
@@ -104,3 +93,14 @@ With that spreadsheet knowledge in mind, here is the required mapping of your da
 - **Rows 4 and Higher** : This is where your content block data is held. The script will read until it finds a completely empty row. (_Required_ for the purpose of the tool, but too many rows of data will confuse the visitor and slow the page.)
 
 You can use the [data source](https://docs.google.com/spreadsheets/d/1ug0i6Nu__CL4saGZolusqlgjmEHJZ9FTsKaJRRLPOtc/view#gid=1871925662) for the  [Github DisplayCase - Empty](https://webapps.library.fresnostate.edu/github-example/displaycase/empty) example page to visualize what is described in the template description above. 
+
+
+### Example DisplayCases
+
+It should be emphasized that not all content block columns are required to be used on a page in order to have benefit. (Sometimes leaving out images is better for a specific purpose, for example.) Here are a few pages with different combinations to inspire you as to how else you can use this tool:
+
+ - [Github DisplayCase Example](https://webapps.library.fresnostate.edu/github-example/displaycase/example)
+ - [Github DisplayCase - Empty](https://webapps.library.fresnostate.edu/github-example/displaycase/empty)
+ - [Github DisplayCase - Titles Only](https://webapps.library.fresnostate.edu/github-example/displaycase/title)
+ - [Github DisplayCase - Content Only](https://webapps.library.fresnostate.edu/github-example/displaycase/content)
+ - [Github DisplayCase - Images Only](https://webapps.library.fresnostate.edu/github-example/displaycase/image)
