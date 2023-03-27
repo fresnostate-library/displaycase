@@ -37,7 +37,7 @@ The following is an overview of how this tool stack should be installed and conf
 ### Secure a Google API Key
 
 If you already have a valid API key, then there is no need to create a different one--just use that; otherwise a
-Google Developer account will be required to [set up an API key](https://support.google.com/googleapi/answer/6158862).
+[Google Developer](https://developers.google.com/) account will be required to [set up an API key](https://support.google.com/googleapi/answer/6158862).
 
 ### Copy the Web Files
 
