@@ -7,6 +7,8 @@ The user experience we are creating allows a visitor to come to our page and use
 
 > For example, for _Black History_ month our librarians have prepared a "black-history" tab with content that is composed of about 25 books held in our collection, along with the images of their bookcovers, and have associated a few keywords with each book as appropriate from a short vocabulary that had been created previously. The visitor would see our DisplayCase at the URL "/displaycase/black-history/" and might click on the "Equity" keyword to view the 11 or so books which are associated with that topic. After reading a brief summary of a particular book, the visitor might click on the content card and be taken to our library catalog where they can go through the process of checking out a copy.
 
+Lastly, this online tool is created for the _non-technical_ librarians or users so that they can implement it quickly and without much knowledge of either programming or HTML. This tool does not use modern programming practices but rather is an older functional style that allows a person to copy files directly from this repository and have a functional product with a minimal set-up.
+
 ## Technical Requirements
 
  - <b>Database:</b> Publically-viewable [Google Sheet](https://www.google.com/sheets/about/) for the data backend.
@@ -30,7 +32,7 @@ The following is an overview of how this tool stack should be installed and conf
 - [Create a new Google Sheet](https://www.wikihow.com/Use-Google-Spreadsheets) to hold your data.
 - Using the built-in Google _Sharing_ feature, give permissions to any content editors. (Also, make sure to select the "anyone with a link can **view**" option.)
 - [Rename the first tab](https://edu.gcfglobal.org/en/googlespreadsheets/working-with-multiple-sheets/1/#) to "example" and insert example data by following the [content template](#google-sheet-template).
-- You can either copy data from one of our [Github Example pages](example-displaycases) or you can put the following (without the quotes) in Row 4, starting with **A4**: "My Title", "Some Content", "https://picsum.photos/300/450", "#", "test"
+- You can either copy data from one of our [Github Example pages](#example-displaycases) or you can put the following (without the quotes) in Row 4, starting with **A4**: "My Title", "Some Content", "https://picsum.photos/300/450", "#", "test"
 
 ### Secure a Google API Key
 
