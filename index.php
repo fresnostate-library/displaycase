@@ -1,5 +1,5 @@
 <?php
-define("VERSION", '2.0.4');
+define("VERSION", '2.0.5');
 error_reporting(0);
 
 /**
@@ -77,8 +77,13 @@ foreach($sheetData['values'] as $item) {
         $filterClass = '';
         $keywordPieces = explode(',', $item[4]);
         foreach ($keywordPieces as $key) {
-            $filterClass .= strtolower(trim($key)) . ' ';
-            $itemKeywords[] = ucfirst(trim($key));
+            if (empty($key)) {
+                $filterClass .= 'misc' . ' ';
+                $itemKeywords[] = 'Misc';
+            } else {
+                $filterClass .= strtolower(trim($key)) . ' ';
+                $itemKeywords[] = ucfirst(trim($key));
+            }
         }
         unset($key); 
     
