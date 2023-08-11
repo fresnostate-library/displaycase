@@ -34,6 +34,8 @@ The following is an overview of how this tool stack should be installed and conf
 - [Rename the first tab](https://edu.gcfglobal.org/en/googlespreadsheets/working-with-multiple-sheets/1/#) to "example" and insert example data by following the [content template](#google-sheet-template).
 - You can either copy data from one of our [Github Example pages](#example-displaycases) or you can put the following (without the quotes) in Row 4, starting with **A4**: "My Title", "Some Content", "https://picsum.photos/300/450", "#", "test"
 
+**Important Note:** The last column in this sheet is for keywords that are associated with the item in that row. These keywords will show at the top of the page and in order for it to be an interesting experience, the keywords should be a curated vocabluary shared amongst a few but not all of the items on the page. Multiple keywords in the same data cell _must_ be separated by a comma (making a comma-delimited list). Multi-word keywords _must_ be hyphenated (separated by a dash "-"). No apostrophes, single or double quotes are allowed in the keywords data cell.
+
 ### Secure a Google API Key
 
 If you already have a valid API key, then there is no need to create a different one--just use that; otherwise a
