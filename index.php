@@ -118,7 +118,7 @@ foreach(array_unique($keywords) as $filter) {
 $bc = '';
 $size = count($breadcrumbArray);
 for($i = 0; $i < $size; $i++) {
-    $bc .= ($i != 0) ? ' &nbsp; » &nbsp; ' : '';
+    $bc .= ($i != 0) ? ' &nbsp; / &nbsp; ' : '';
     $bc .= '<a href="' . $breadcrumbArray[$i][1] . '">' . $breadcrumbArray[$i][0] . '</a>';
 }
 
