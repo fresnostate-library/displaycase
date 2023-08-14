@@ -1,5 +1,5 @@
 <?php
-define("VERSION", '2.0.5');
+define("VERSION", '2.0.6');
 error_reporting(0);
 
 /**
@@ -147,7 +147,7 @@ for($i = 0; $i < $size; $i++) {
     <div id="top" class="container">
 
         <div id="breadcrumb">
-            <div class="breadcrumb mt-1">
+            <div class="breadcrumb">
                 <?php echo $bc; ?>
             </div>
         </div>
