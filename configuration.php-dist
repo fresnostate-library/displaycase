@@ -24,6 +24,7 @@ error_reporting(0);
  *  - pathFromWebRoot = Do not include start or end slashes. Example: path/to/app
  *  - redirectURL = Where the visitor is sent, if no tab is provided.
  *  - breadcrumb = Text and URLs for how many ever layers of breadcrumb links you want, in an array format.
+ *  - breadcrumbSeparator = String of characters or HTML which will separate the links in the breadcrumb trail.
  *  - orgName = Name of the Organization to append to the page title.
  *  - googleApiKey = Google API Key obtained by following these instructions:  
  *          https://support.google.com/googleapi/answer/6158862
@@ -38,6 +39,7 @@ return (object) array(
         ["GrandParent", "https://www.my-school.edu/library/centers/my-group"],
         ["Parent", "https://www.my-school.edu/library/centers/my-group/collections"]
     ),
+    'breadcrumbSeparator' => " / ",
     'orgName' => "My School Library",
     'googleApiKey' => "AIzaSy_really-big-assigned-number_Eww",
     'googleSheetId' => "1ug0i6Nu__CL4saGZolusqlgjmEHJZ9FTsKaJRRLPOtc",

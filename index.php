@@ -1,5 +1,5 @@
 <?php
-define("VERSION", '2.0.6');
+define("VERSION", '2.0.7');
 error_reporting(0);
 
 /**
@@ -38,6 +38,7 @@ if (
 $cfg = include('configuration.php');
 $scriptPathFromWebRoot = '/' . $cfg->pathFromWebRoot . '/';
 $breadcrumbArray = $cfg->breadcrumb;
+$breadcrumbSeparator = ($cfg->breadcrumbSeparator) ? $cfg->breadcrumbSeparator : ' &nbsp; / &nbsp; ';
 $apiKey = $cfg->googleApiKey;
 $sheetId = $cfg->googleSheetId;
 
@@ -118,7 +119,7 @@ foreach(array_unique($keywords) as $filter) {
 $bc = '';
 $size = count($breadcrumbArray);
 for($i = 0; $i < $size; $i++) {
-    $bc .= ($i != 0) ? ' &nbsp; / &nbsp; ' : '';
+    $bc .= ($i != 0) ? $breadcrumbSeparator : '';
     $bc .= '<a href="' . $breadcrumbArray[$i][1] . '">' . $breadcrumbArray[$i][0] . '</a>';
 }
 
