@@ -39,7 +39,7 @@ return (object) array(
         ["GrandParent", "https://www.my-school.edu/library/centers/my-group"],
         ["Parent", "https://www.my-school.edu/library/centers/my-group/collections"]
     ),
-    'breadcrumbSeparator' => " / ",
+    'breadcrumbSeparator' => "&nbsp; &#187; &nbsp;",
     'orgName' => "My School Library",
     'googleApiKey' => "AIzaSy_really-big-assigned-number_Eww",
     'googleSheetId' => "1ug0i6Nu__CL4saGZolusqlgjmEHJZ9FTsKaJRRLPOtc",
