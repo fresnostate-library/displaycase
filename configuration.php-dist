@@ -31,16 +31,34 @@ error_reporting(0);
  *  - googleSheetId = Copy the long ID found in the Google Sheet URL, between the "/d/" and "/edit" strings
  */
 return (object) array(
-    'pathFromWebRoot' => "displaycase",
-    'redirectURL' => "?tab=bad",
-    'breadcrumb' => array(
-        ["Home", "https://www.my-school.edu/library/"],
-        ["GreatGrandParent", "https://www.my-school.edu/library/centers"],
-        ["GrandParent", "https://www.my-school.edu/library/centers/my-group"],
-        ["Parent", "https://www.my-school.edu/library/centers/my-group/collections"]
+    'app' => array(
+        'googleApiKey' => "AIzaSy_really-big-assigned-number_Eww",
+        'googleSheetId' => "1ug0i6Nu__CL4saGZolusqlgjmEHJZ9FTsKaJRRLPOtc",
+        'orgName' => "My School Library",
+        'pathFromWebRoot' => "displaycase",
+        'redirectURL' => "?tab=bad"
     ),
-    'breadcrumbSeparator' => "&nbsp; &#187; &nbsp;",
-    'orgName' => "My School Library",
-    'googleApiKey' => "AIzaSy_really-big-assigned-number_Eww",
-    'googleSheetId' => "1ug0i6Nu__CL4saGZolusqlgjmEHJZ9FTsKaJRRLPOtc",
+    'breadcrumbs' => array(
+        'showCrumbs' => false,
+        'separator' => "&nbsp; &#187; &nbsp;",
+        'links' => array(
+            ["Home", "https://www.my-school.edu/library/"],
+            ["GreatGrandParent", "https://www.my-school.edu/library/centers"],
+            ["GrandParent", "https://www.my-school.edu/library/centers/my-group"],
+            ["Parent", "https://www.my-school.edu/library/centers/my-group/collections"]
+        ),
+    ),
+    'display' => array(
+        'keywordAlphabetizeOrder' => true,
+        'keywordRemoveHyphens' => true,
+        'leftJustifyTitleDesc' => true
+    ),
+    'hide' => array(
+        'header' => true,
+        'breadcrumbs' => true,
+        'title' => true,
+        'description' => true,
+        'toTopArrow' => true,
+        'footer' => true
+    ),
 );
