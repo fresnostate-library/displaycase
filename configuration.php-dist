@@ -39,7 +39,6 @@ return (object) array(
         'redirectURL' => "?tab=bad"
     ),
     'breadcrumbs' => array(
-        'showCrumbs' => false,
         'separator' => "&nbsp; &#187; &nbsp;",
         'links' => array(
             ["Home", "https://www.my-school.edu/library/"],
@@ -49,16 +48,16 @@ return (object) array(
         ),
     ),
     'display' => array(
-        'keywordAlphabetizeOrder' => true,
-        'keywordRemoveHyphens' => true,
-        'leftJustifyTitleDesc' => true
+        'keywordAlphabetizeOrder' => false,
+        'keywordRemoveHyphens' => false,
+        'leftJustifyTitleDesc' => false
     ),
     'hide' => array(
-        'header' => true,
-        'breadcrumbs' => true,
-        'title' => true,
-        'description' => true,
-        'toTopArrow' => true,
-        'footer' => true
+        'header' => false,
+        'breadcrumbs' => false,
+        'title' => false,
+        'description' => false,
+        'toTopArrow' => false,
+        'footer' => false
     ),
 );
