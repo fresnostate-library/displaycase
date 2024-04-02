@@ -1,5 +1,5 @@
 <?php
-define("VERSION", '2.0.7');
+define("VERSION", '3.0.0');
 error_reporting(0);
 
 /**
@@ -16,7 +16,7 @@ error_reporting(0);
  * @category   LIBWebApplication
  * @package    DisplayCase
  * @author     Steven Orr <sorr@mail.fresnostate.edu>
- * @copyright  2022 Fresno State Library, Fresno State 
+ * @copyright  2024 Fresno State Library, Fresno State 
  * @license    http://opensource.org/licenses/gpl-3.0.html GNU Public License v3
  * @link       https://github.com/fresnostate-library/displaycase
 */
@@ -34,32 +34,31 @@ if (
     exit;
 }
 
-// ########## Set up script environment
+// ########## Prep for running script
 $cfg = include('configuration.php');
-$scriptPathFromWebRoot = '/' . $cfg->pathFromWebRoot . '/';
-$breadcrumbArray = $cfg->breadcrumb;
-$breadcrumbSeparator = ($cfg->breadcrumbSeparator) ? $cfg->breadcrumbSeparator : ' &nbsp; / &nbsp; ';
-$apiKey = $cfg->googleApiKey;
-$sheetId = $cfg->googleSheetId;
-
-// ########## Start gathering necessary data
 $tabVariable = $_GET["tab"];
 
 // Send the visitor away if they've requested no tab
 if (empty($tabVariable)) {
-    header('Refresh: 1;url='.$cfg->redirectURL); 
+    header('Refresh: 1;url='.$cfg->app->redirectURL); 
     exit;
 }
-$sheetTabName = $tabVariable;
-$baseUrl = 'https://sheets.googleapis.com/v4/spreadsheets/';
-$requestUrl = $baseUrl . $sheetId . '/values/' . $sheetTabName . '?key=' . $apiKey;
+
+// ########## Resolve all configuration variables
+$apiKey = $cfg->app->googleApiKey;
+$breadcrumbArray = $cfg->breadcrumbs->links;
+$breadcrumbSeparator = ($cfg->breadcrumbs->separator) ? $cfg->breadcrumbs->separator : ' &nbsp; / &nbsp; ';
+$scriptPathFromWebRoot = '/' . $cfg->app->pathFromWebRoot . '/';
+$sheetId = $cfg->app->googleSheetId;
+$sheetsBaseUrl = 'https://sheets.googleapis.com/v4/spreadsheets/';
 
 // ########## Pull JSON data from API
-$json = file_get_contents($requestUrl);
-if(!$json) {
-    $json = '{ "values": [ [ "Nonconfigured Display" ], [ "You have not found a valid Google Sheet tab." ], [ "Title", "Content", "Image", "Link", "Keyword" ], [ "404 Not Found", "Content needs to be created or API Key is invalid.", "", "", "404" ] ] }';
+$jsonUrl = $sheetsBaseUrl . $sheetId . '/values/' . $tabVariable . '?key=' . $apiKey;
+$jsonData = file_get_contents($jsonUrl);
+if(!$jsonData) {
+    $jsonData = '{ "values": [ [ "Nonconfigured DisplayCase Backend" ], [ "You have not found a valid Google Sheet tab." ], [ "Title", "Content", "Image", "Link", "Keyword" ], [ "404 Not Found", "Content document needs to be created or API Key is invalid.", "", "", "404" ] ] }';
 }
-$sheetData = json_decode($json, true);
+$sheetData = json_decode($jsonData, true);
 if(count($sheetData["values"]) <= 3) {
     $sheetData["values"][] = [ "204 No Content", "Valid Sheet with no content.", "", "", "204" ];
 }
@@ -109,7 +108,7 @@ foreach($sheetData['values'] as $item) {
     $count++;
 } 
 
-// Prepare the filter buttonsfor display
+// Prepare the filter buttons for display
 $filterButtons = '';
 foreach(array_unique($keywords) as $filter) {
     $filterButtons .= '<button type="button" data-filter=".' . strtolower($filter) . '" class="btn btn-primary m-1 text-dark" title="Filter by ' . $filter . '">' . $filter . '</button>';
@@ -123,7 +122,7 @@ for($i = 0; $i < $size; $i++) {
     $bc .= '<a href="' . $breadcrumbArray[$i][1] . '">' . $breadcrumbArray[$i][0] . '</a>';
 }
 
-// ########## Display HTML and results, inline
+// ########## Display HTML and JSON data results, inline
 ?>
 <!DOCTYPE html>
 <html lang="en">
