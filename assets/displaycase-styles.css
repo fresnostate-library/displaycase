@@ -1,33 +1,33 @@
 @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;500;700&display=swap');
 
-body{
+body {
     font-family: 'Quicksand', sans-serif;
 }
-.underline{
+.underline {
     height: 3px;
     width: 100px;
     background-color: #13284c;
 }
-.btn:focus{
+.btn:focus {
     outline: none!important;
     box-shadow: none!important;
 }
-.btn-primary{
+.btn-primary {
     background-color: #ced1d4!important;
     border: none;
 }
-.btn-primary:hover{
+.btn-primary:hover {
     background-color: #13284c!important;
     color: #fff!important;
 }
 
-.display-item{
+.display-item {
     border: 1px solid #ced1d4;
     border-radius: 4px;
     position: relative;
 }
 
-.display-item:hover::after{
+.display-item:hover::after {
     content: "";
     position: absolute;
     top: 0;
