@@ -157,16 +157,21 @@ for($i = 0; $i < $size; $i++) {
 </head>
 <body>
 
+    <?php if (!$hideHeader): ?>
     <?php include 'assets/includes/header.php'; ?>
+    <?php endif; ?>
 
     <div id="top" class="container">
 
+        <?php if (!$hideBreadcrumbs): ?>
         <div id="breadcrumb">
             <div class="breadcrumb">
                 <?php echo $bc; ?>
             </div>
         </div>
+        <?php endif; ?>
 
+        <?php if (!$hideTitle): ?>
         <div class="row">
             <div class="col my-4<?php echo $textCenterClass; ?>"> 
                 <h1 class="fs-2"><?php echo $pageTitle; ?></h1>
@@ -174,11 +179,12 @@ for($i = 0; $i < $size; $i++) {
                 <?php if (!$displayToLeft): ?>
                 <div class="underline mx-auto mt-3"></div>
                 <?php endif; ?>
-                
+
             </div>
         </div>
+        <?php endif; ?>
 
-        <?php if (!empty($pageDesc)): ?>
+        <?php if (!$hideDescription AND !empty($pageDesc)): ?>
         <div class="row">
             <div class="col<?php echo $textCenterClass; ?>">
                 <p><?php echo $pageDesc; ?></p>
@@ -201,16 +207,20 @@ for($i = 0; $i < $size; $i++) {
 
         </div> <!-- // #display-list -->
 
+        <?php if (!$hideToTop): ?>
         <p class="return-top mb-2">
             <a href="#top" title="Return to Page Top">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-up-circle"><circle cx="12" cy="12" r="10"></circle><polyline points="16 12 12 8 8 12"></polyline><line x1="12" y1="16" x2="12" y2="8"></line></svg> 
                 Top
             </a>
         </p>
+        <?php endif; ?>
 
     </div> <!-- // .container -->
 
+    <?php if (!$hideFooter): ?>
     <?php include 'assets/includes/footer.php'; ?>
+    <?php endif; ?>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://unpkg.com/imagesloaded@5/imagesloaded.pkgd.min.js"></script>
