@@ -60,6 +60,7 @@ $hideFooter = $cfg['hide']['footer'];
 $scriptPathFromWebRoot = '/' . $cfg['app']['pathFromWebRoot'] . '/';
 $sheetId = $cfg['app']['googleSheetId'];
 $sheetsBaseUrl = 'https://sheets.googleapis.com/v4/spreadsheets/';
+$textCenterClass = ($displayToLeft) ? '' : ' text-center';
 
 // ########## Pull JSON data from API
 $jsonUrl = $sheetsBaseUrl . $sheetId . '/values/' . $tabVariable . '?key=' . $apiKey;
@@ -112,7 +113,7 @@ foreach($sheetData['values'] as $item) {
     } elseif ($count == 1) {
         $pageDesc = (!empty($item[0])) ? trim($item[0]) : '';
     } elseif ($count == 0) {
-        $pageTitle = (!empty($item[0])) ? trim($item[0]) : 'Unset Title';
+        $pageTitle = (!empty($item[0])) ? trim($item[0]) : 'Unset Page Title';
     }
     $count++;
 } 
@@ -145,7 +146,7 @@ for($i = 0; $i < $size; $i++) {
     <meta name="Generator" content="DisplayCase v<?php echo VERSION; ?> (https://github.com/fresnostate-library/displaycase)" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?php echo $pageTitle . ' @ ' . $cfg->orgName; ?></title>
+    <title><?php echo $pageTitle . ' @ ' . $cfg['app']['orgName']; ?></title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel = "stylesheet" href = "<?php echo $scriptPathFromWebRoot; ?>assets/displaycase-styles.css">
 
@@ -167,15 +168,21 @@ for($i = 0; $i < $size; $i++) {
         </div>
 
         <div class="row">
-            <div class="col text-center my-4">
+            <div class="col my-4<?php echo $textCenterClass; ?>"> 
                 <h1 class="fs-2"><?php echo $pageTitle; ?></h1>
+<?php 
+    if (!$displayToLeft) : 
+?>
                 <div class="underline mx-auto mt-3"></div>
+<?php 
+    endif; 
+?>
             </div>
         </div>
 
         <?php if (!empty($pageDesc)): ?>
         <div class="row">
-            <div class="col text-center">
+            <div class="col<?php echo $textCenterClass; ?>">
                 <p><?php echo $pageDesc; ?></p>
             </div>
         </div>
