@@ -40,23 +40,29 @@ $tabVariable = $_GET["tab"];
 
 // Send the visitor away if they've requested no tab
 if (empty($tabVariable)) {
-    header('Refresh: 1;url='.$cfg->app->redirectURL); 
+    header('Refresh: 1;url=' . $cfg['app']['redirectURL']); 
     exit;
 }
 
 // ########## Resolve all configuration variables
-$apiKey = $cfg->app->googleApiKey;
-$breadcrumbArray = $cfg->breadcrumbs->links;
-$breadcrumbSeparator = ($cfg->breadcrumbs->separator) ? $cfg->breadcrumbs->separator : ' &nbsp; / &nbsp; ';
-$scriptPathFromWebRoot = '/' . $cfg->app->pathFromWebRoot . '/';
-$sheetId = $cfg->app->googleSheetId;
+$apiKey = $cfg['app']['googleApiKey'];
+$breadcrumbArray = $cfg['breadcrumbs']['links'];
+$breadcrumbSeparator = ($cfg['breadcrumbs']['separator']) ? $cfg['breadcrumbs']['separator'] : ' &nbsp; / &nbsp; ';
+$hideHeader = $cfg['hide']['header'];
+$hideBreadcrumbs = $cfg['hide']['breadcrumbs'];
+$hideTitle = $cfg['hide']['title'];
+$hideDescription = $cfg['hide']['description'];
+$hideToTop = $cfg['hide']['toTopArrow'];
+$hideFooter = $cfg['hide']['footer'];
+$scriptPathFromWebRoot = '/' . $cfg['app']['pathFromWebRoot'] . '/';
+$sheetId = $cfg['app']['googleSheetId'];
 $sheetsBaseUrl = 'https://sheets.googleapis.com/v4/spreadsheets/';
 
 // ########## Pull JSON data from API
 $jsonUrl = $sheetsBaseUrl . $sheetId . '/values/' . $tabVariable . '?key=' . $apiKey;
 $jsonData = file_get_contents($jsonUrl);
 if(!$jsonData) {
-    $jsonData = '{ "values": [ [ "Nonconfigured DisplayCase Backend" ], [ "You have not found a valid Google Sheet tab." ], [ "Title", "Content", "Image", "Link", "Keyword" ], [ "404 Not Found", "Content document needs to be created or API Key is invalid.", "", "", "404" ] ] }';
+    $jsonData = '{ "values": [ [ "Nonconfigured DisplayCase Backend" ], [ "You have not found a valid Google Sheet tab.<br><br>Tab = ' . $tabVariable . '<br>API Key = ' . $apiKey . '<br>Sheet ID = ' . $sheetId . ' " ], [ "Title", "Content", "Image", "Link", "Keyword" ], [ "404 Not Found", "Content document needs to be created or API Key is invalid.", "", "", "404" ] ] }';
 }
 $sheetData = json_decode($jsonData, true);
 if(count($sheetData["values"]) <= 3) {

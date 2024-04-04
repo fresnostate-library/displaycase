@@ -30,7 +30,7 @@ error_reporting(0);
  *          https://support.google.com/googleapi/answer/6158862
  *  - googleSheetId = Copy the long ID found in the Google Sheet URL, between the "/d/" and "/edit" strings
  */
-return (object) array(
+return array(
     'app' => array(
         'googleApiKey' => "AIzaSy_really-big-assigned-number_Eww",
         'googleSheetId' => "1ug0i6Nu__CL4saGZolusqlgjmEHJZ9FTsKaJRRLPOtc",
