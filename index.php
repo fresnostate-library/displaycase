@@ -119,9 +119,13 @@ foreach($sheetData['values'] as $item) {
 
 // Prepare the filter buttons for display
 $filterButtons = '';
-foreach(array_unique($keywords) as $filter) {
-    $filterText = ($displayNoHyphens) ? str_replace("-", " ", $filter) : $filter;
-    $filterButtons .= '<button type="button" data-filter=".' . strtolower($filter) . '" class="btn btn-primary m-1 text-dark" title="Filter by ' . $filter . '">' . $filterText . '</button>';
+if ($displayAlphabetized) {
+    natsort($keywords);
+}
+foreach(array_unique($keywords) as $filterVal) {
+    $keywordText = ($displayNoHyphens) ? ucwords(str_replace("-", " ", $filterVal)) : $filterVal;
+    $keywordDatafilter = '.' . strtolower($filterVal);
+    $filterButtons .= '<button type="button" data-filter="' . $keywordDatafilter . '" class="btn btn-primary m-1 text-dark" title="Filter by ' . $keywordText . '">' . $keywordText . '</button>';
 }
 
 // Construct the breadcrumb trail
