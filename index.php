@@ -170,13 +170,11 @@ for($i = 0; $i < $size; $i++) {
         <div class="row">
             <div class="col my-4<?php echo $textCenterClass; ?>"> 
                 <h1 class="fs-2"><?php echo $pageTitle; ?></h1>
-<?php 
-    if (!$displayToLeft) : 
-?>
+
+                <?php if (!$displayToLeft): ?>
                 <div class="underline mx-auto mt-3"></div>
-<?php 
-    endif; 
-?>
+                <?php endif; ?>
+                
             </div>
         </div>
 
