@@ -48,6 +48,9 @@ if (empty($tabVariable)) {
 $apiKey = $cfg['app']['googleApiKey'];
 $breadcrumbArray = $cfg['breadcrumbs']['links'];
 $breadcrumbSeparator = ($cfg['breadcrumbs']['separator']) ? $cfg['breadcrumbs']['separator'] : ' &nbsp; / &nbsp; ';
+$displayAlphabetized = $cfg['display']['keywordAlphabetizeOrder'];
+$displayNoHyphens = $cfg['display']['keywordRemoveHyphens'];
+$displayToLeft = $cfg['display']['leftJustifyTitleDesc'];
 $hideHeader = $cfg['hide']['header'];
 $hideBreadcrumbs = $cfg['hide']['breadcrumbs'];
 $hideTitle = $cfg['hide']['title'];
@@ -117,7 +120,8 @@ foreach($sheetData['values'] as $item) {
 // Prepare the filter buttons for display
 $filterButtons = '';
 foreach(array_unique($keywords) as $filter) {
-    $filterButtons .= '<button type="button" data-filter=".' . strtolower($filter) . '" class="btn btn-primary m-1 text-dark" title="Filter by ' . $filter . '">' . $filter . '</button>';
+    $filterText = ($displayNoHyphens) ? str_replace("-", " ", $filter) : $filter;
+    $filterButtons .= '<button type="button" data-filter=".' . strtolower($filter) . '" class="btn btn-primary m-1 text-dark" title="Filter by ' . $filter . '">' . $filterText . '</button>';
 }
 
 // Construct the breadcrumb trail
