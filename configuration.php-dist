@@ -19,16 +19,39 @@ error_reporting(0);
 */
 
 /*
- * The following are hints on what to put in the array below:
+ * The following are hints on what values to put in the multi-dimensional array below--these are universal settings.
  * 
- *  - pathFromWebRoot = Do not include start or end slashes. Example: path/to/app
- *  - redirectURL = Where the visitor is sent, if no tab is provided.
- *  - breadcrumb = Text and URLs for how many ever layers of breadcrumb links you want, in an array format.
- *  - breadcrumbSeparator = String of characters or HTML which will separate the links in the breadcrumb trail.
- *  - orgName = Name of the Organization to append to the page title.
- *  - googleApiKey = Google API Key obtained by following these instructions:  
+ * "app" section: 
+ *     - googleApiKey = Google API Key obtained by following these instructions:  
  *          https://support.google.com/googleapi/answer/6158862
- *  - googleSheetId = Copy the long ID found in the Google Sheet URL, between the "/d/" and "/edit" strings
+ *     - googleSheetId = Use the ID from the Google Sheet URL, found between the "/d/" and "/edit" strings.
+ *     - orgName = Name of the organization, used to append to the page title.
+ *     - pathFromWebRoot = Path to where this script is located, from web server root directory.
+ *          Do not include start or end slashes. (Example: path/to/app )
+ *     - redirectURL = Where the visitor is sent, if no tab is provided. (Example: ?tab=main-display )
+ *
+ * "breadcrumbs" section: 
+ *     - separator = String of characters or HTML entity which will separate the links in the breadcrumb trail.
+ *     - breadcrumbs = This is an array of small arrays. These small arrays contain the link text and URL for each breadcrumb.
+ *          The order of this array (first to last) is how it will be displayed on the page (left to right).
+ *  
+ * "display" section: 
+ *     - keywordAlphabetizeOrder = Alphabetize the sorting/filter buttons (keywords) for display. Default is "first in, first out."
+ *     - keywordRemoveHyphens = Hyphens are REQUIRED in the keywords in order for filtering to work; but sometimes they are not
+ *          preferred in the sorting/filter buttons, as they can be hard to read. This setting removes them from the button text.
+ *     - leftJustifyTitleDesc = Sometimes the Title and Page Description look okay when centered and sometimes not. 
+ *          This setting removes the "centering" treatment for these two page elements.
+ *  
+ * "hide" section (because sometimes you don't want default page elements to show): 
+ *     - header = Hide all top-of-the-page content. (Including content from assets/includes/header.php file.)
+ *     - breadcrumbs = Hide the breadcrumbs content block.
+ *     - title = Hide page title heading block. 
+ *     - description = Hide the page description content block. 
+ *     - toTopArrow = Hide the return-to-top icon and text, found at page bottom.
+ *     - footer = Hide all footer content. (Including content from assets/includes/footer.php file.)
+ *
+ *
+ * IMPORTANT NOTE: All settings in this configuration file will affect ALL displaycases (tabs) in this installation.
  */
 return array(
     'app' => array(
