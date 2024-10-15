@@ -1,7 +1,0 @@
-RewriteEngine On
-
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteCond %{REQUEST_FILENAME} !-d
-
-RewriteBase "/path/to/displaycase/"
-RewriteRule "^(.*)" "index.php?tab=$1" [L]
