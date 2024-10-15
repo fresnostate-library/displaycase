@@ -5,6 +5,7 @@
 #   All of these files started with "php-dist" or "htm-dist" extensions.
 #   They should be renamed to remove the "-dist" string so as to avoid
 #   losing your custom data if/when the code is updated.
+.htaccess
 configuration.php
 custom-css.htm
 custom-js.htm
