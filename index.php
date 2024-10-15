@@ -1,5 +1,5 @@
 <?php
-define("VERSION", '3.0.0');
+define("VERSION", '3.1.0');
 error_reporting(0);
 
 /**
@@ -24,6 +24,7 @@ error_reporting(0);
 // ########## Simple check for configuration files
 clearstatcache();
 if (
+    !file_exists('.htaccess') or 
     !file_exists('configuration.php') or 
     !file_exists('assets/includes/custom-css.htm') or 
     !file_exists('assets/includes/custom-js.htm') or 
@@ -57,6 +58,7 @@ $hideTitle = $cfg['hide']['title'];
 $hideDescription = $cfg['hide']['description'];
 $hideToTop = $cfg['hide']['toTopArrow'];
 $hideFooter = $cfg['hide']['footer'];
+$hideJsonData = (!empty($cfg['hide']['jsonData'])) ? $cfg['hide']['jsonData'] : true;
 $scriptPathFromWebRoot = '/' . $cfg['app']['pathFromWebRoot'] . '/';
 $sheetId = $cfg['app']['googleSheetId'];
 $sheetsBaseUrl = 'https://sheets.googleapis.com/v4/spreadsheets/';
@@ -227,5 +229,13 @@ for($i = 0; $i < $size; $i++) {
     <script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.js"></script>
 
     <script src = "<?php echo $scriptPathFromWebRoot; ?>assets/displaycase-scripts.js" defer></script>
+
+    <?php if (!$hideJsonData): ?>
+    <script> 
+    // <![CDATA[
+<?php print $jsonData; ?>
+    // ]]>
+    </script> 
+    <?php endif; ?>
 </body>
 </html>
