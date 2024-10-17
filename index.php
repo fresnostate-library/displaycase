@@ -48,7 +48,7 @@ if (empty($tabVariable)) {
 // ########## Resolve all configuration variables
 $apiKey = $cfg['app']['googleApiKey'];
 $breadcrumbArray = $cfg['breadcrumbs']['links'];
-$breadcrumbSeparator = ($cfg['breadcrumbs']['separator']) ? $cfg['breadcrumbs']['separator'] : ' &nbsp; / &nbsp; ';
+$breadcrumbSeparator = (!empty($cfg['breadcrumbs']['separator'])) ? $cfg['breadcrumbs']['separator'] : ' &nbsp; / &nbsp; ';
 $displayAlphabetized = $cfg['display']['keywordAlphabetizeOrder'];
 $displayNoHyphens = $cfg['display']['keywordRemoveHyphens'];
 $displayToLeft = $cfg['display']['leftJustifyTitleDesc'];
@@ -58,7 +58,7 @@ $hideTitle = $cfg['hide']['title'];
 $hideDescription = $cfg['hide']['description'];
 $hideToTop = $cfg['hide']['toTopArrow'];
 $hideFooter = $cfg['hide']['footer'];
-$hideJsonData = (!empty($cfg['hide']['jsonData'])) ? $cfg['hide']['jsonData'] : true;
+$hideJsonData = (isset($cfg['hide']['jsonData'])) ? $cfg['hide']['jsonData'] : true;
 $scriptPathFromWebRoot = '/' . $cfg['app']['pathFromWebRoot'] . '/';
 $sheetId = $cfg['app']['googleSheetId'];
 $sheetsBaseUrl = 'https://sheets.googleapis.com/v4/spreadsheets/';
@@ -240,7 +240,9 @@ for($i = 0; $i < $size; $i++) {
     <?php if (!$hideJsonData): ?>
     <script> 
     // <![CDATA[
+
 <?php print $jsonData; ?>
+
     // ]]>
     </script> 
     <?php endif; ?>
