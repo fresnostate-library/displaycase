@@ -49,6 +49,8 @@ error_reporting(0);
  *     - description = Hide the page description content block. 
  *     - toTopArrow = Hide the return-to-top icon and text, found at page bottom.
  *     - footer = Hide all footer content. (Including content from assets/includes/footer.php file.)
+ *     - jsonData = Prevent CDATA block, containing JSON data returned from the Google Sheet, from being included in HTML. 
+ *          (Is not "visible" to visitors visually but is displayed in page's HTML, so should not be enabled in Production.)
  *
  *
  * IMPORTANT NOTE: All settings in this configuration file will affect ALL displaycases (tabs) in this installation.
@@ -81,6 +83,7 @@ return array(
         'title' => false,
         'description' => false,
         'toTopArrow' => false,
-        'footer' => false
+        'footer' => false,
+        'jsonData' => true
     ),
 );
