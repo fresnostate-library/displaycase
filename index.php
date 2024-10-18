@@ -76,15 +76,16 @@ if(count($sheetData["values"]) <= 3) {
 }
 
 // ########## Parse JSON data into HTML content
-$count = 0;
+$rowNumber = 0;
 $pageTitle = '';
 $pageDesc = '';
 $itemsHtml = '';
 $keywords = [];
+$modifiedDate = '';
 foreach($sheetData['values'] as $item) {
 
     // Only parse if NOT the page title or description
-    if($count > 2) {
+    if($rowNumber > 2) {
         $itemKeywords = [];
         $filterClass = '';
         $keywordPieces = explode(',', $item[4]);
@@ -112,12 +113,15 @@ foreach($sheetData['values'] as $item) {
 </div>';
         $keywords = array_merge($itemKeywords, $keywords);
         $itemsHtml .= $itemContent;
-    } elseif ($count == 1) {
+    } elseif ($rowNumber == 1) {
         $pageDesc = (!empty($item[0])) ? trim($item[0]) : '';
-    } elseif ($count == 0) {
+    } elseif ($rowNumber == 0) {
         $pageTitle = (!empty($item[0])) ? trim($item[0]) : 'Unset Page Title';
+
+        //Jump to Column E to check for existence of Date
+        $modifiedDate = (!empty($item[4])) ? trim($item[4]) : NULL;
     }
-    $count++;
+    $rowNumber++;
 } 
 
 // Prepare the filter buttons for display
@@ -220,6 +224,13 @@ for($i = 0; $i < $size; $i++) {
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-up-circle"><circle cx="12" cy="12" r="10"></circle><polyline points="16 12 12 8 8 12"></polyline><line x1="12" y1="16" x2="12" y2="8"></line></svg> 
                 Top
             </a>
+        </p>
+        <?php endif; ?>
+
+        
+        <?php if ($modifiedDate): ?>
+        <p id="modified-date" class="mt-3">
+            Last Modified: <?php echo $modifiedDate; ?> 
         </p>
         <?php endif; ?>
 

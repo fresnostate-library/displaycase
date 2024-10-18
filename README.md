@@ -9,6 +9,8 @@ The user experience we are creating allows a visitor to come to our page and use
 
 Lastly, this online tool is created for the _non-technical_ librarians or users so that they can implement it quickly and without much knowledge of either programming or HTML. This tool does not use modern programming practices but rather is an older functional style that allows a person to copy files directly from this repository and have a functional product with a minimal set-up.
 
+At the bottom of this document are various examples of the DisplayCase in use, so that you can better envision the possibilities.
+
 ## Technical Requirements
 
  - <b>Database:</b> Publically-viewable [Google Sheet](https://www.google.com/sheets/about/) for the data backend.
@@ -46,7 +48,7 @@ If you already have a valid API key, then there is no need to create a different
 - Ensure that the Apache server is [configured to use](https://httpd.apache.org/docs/2.4/howto/htaccess.html) **.htaccess** files.
 - Create a sub-directory in the Apache webroot. (For example, you could name it "displaycase".)
 - Copy the contents of this code repository, both files and folders, into this new directory.
-- Update the **.htaccess**  file with the correct "[RewriteBase](https://www.oreilly.com/library/view/apache-the-definitive/0596002033/re127.html)" value, which is the path from web root. (If following our suggestions, this value would be "displaycase".) 
+- Rename and update the **.htaccess**  file with the correct "[RewriteBase](https://www.oreilly.com/library/view/apache-the-definitive/0596002033/re127.html)" value, which is the path from web root. (If following our suggestions, this value would be "displaycase".) 
 - Complete the configuration process by inserting accurate values in the "configuration.php" settings file. (There are hints contained within that file.)
 - Activate the "include" files, found in "assets/includes", by removing the "-dist" from the file extension.
 
@@ -59,6 +61,8 @@ The page should now be accessible by browser on your web server, so visit a few 
 - /displaycase/bad = This will show a "404 Not Found" error, because no tab of this name exists.
 
 If you are able to get all of these example pages to show up, then there is a high probability that you've configured the tool correctly.
+
+If you continue to have problems, there is a setting in the ``configuration.php`` file ("Hide" -> "jsonDate") that you can _enable_ in order to view the JSON being returned from the Google Sheet, if any. You must set this to "false" in order to use it, but should reset it back to "true" before putting your page into Production. To view the JSON code, use your browser's built-in "view source code" feature and you will find it at the very bottom of the HTML code.
 
 ### Prepare Image Storage
 
@@ -75,6 +79,8 @@ Now that you've tested your installation files and established your image storag
 - We suggest that you keep an "example" tab with some data, so that you can quickly use this to troubleshoot in the future.
 - Publish or distribute your new URL (tool folder followed by tab) to your community.
 
+---
+
 ## Miscellaneous Information
 
 This section holds more information on certain topics mentioned previously.
@@ -90,14 +96,19 @@ in that row would be **B1** or Column B and Row 1.
 With that spreadsheet knowledge in mind, here is the required mapping of your data so that the tool works:
 
 - **A1** : This is the title displayed on the page. (While this is technically _optional_, every page deserves a title, right?)
+
 - **A2** : This is the descriptive text that is placed below the title. (_Optional_ and can take simple HTML tags.)
 - **A3, B3, C3, D3, E3** : This row only holds the column headings for the data included afterward. (_Optional_ but a good reminder for you; otherwise, Row 3 must exist but will NOT be read.)
-- **Rows 4 and Higher** : This is where your content block data is held. The script will read until it finds a completely empty row. (_Required_ for the purpose of the tool, but too many rows of data will confuse the visitor and slow the page.)
+- **Rows 4 and Larger** : This is where your content block data is held. The script will read until it finds a completely empty row. (_Required_ for the purpose of the tool, but too many rows of data will confuse the visitor and slow the page.)
 
-You can use the [data source](https://docs.google.com/spreadsheets/d/1ug0i6Nu__CL4saGZolusqlgjmEHJZ9FTsKaJRRLPOtc/view#gid=1871925662) for the  [Github DisplayCase - Empty](https://webapps.library.fresnostate.edu/github-example/displaycase/empty) example page to visualize what is described in the template description above. 
+If you choose to display a "last modified" date at the bottom of the displaycase web page(s), then you should also prepare these two cells:
+- **D1** : An _Optional_ label for the following "date" cell, so that Editors are reminded of the feature.
+- **E1** : An _Optional_ opportunity to manually include a 'last modified' date for display at the page bottom. Here are instructions to [automate the last-modified date](last-modified.md) so that it gets reset when **any edit** occurs on the Google Sheet tab.
+
+No matter what, you can use the [data source](https://docs.google.com/spreadsheets/d/1ug0i6Nu__CL4saGZolusqlgjmEHJZ9FTsKaJRRLPOtc/view#gid=1871925662) for the  [Github DisplayCase - Empty](https://webapps.library.fresnostate.edu/github-example/displaycase/empty) example page to visualize what is described in the template description above. 
 
 
-### Example DisplayCases
+### Example DisplayCase Implementations
 
 It should be emphasized that not all content block columns are required to be used on a page in order to have benefit. (Sometimes leaving out images is better for a specific purpose, for example.) Here are a few pages with different combinations to inspire you as to how else you can use this tool:
 
