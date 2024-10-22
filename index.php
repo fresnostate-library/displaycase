@@ -1,5 +1,5 @@
 <?php
-define("VERSION", '3.1.0');
+define("VERSION", '3.1.1');
 error_reporting(0);
 
 /**
@@ -159,10 +159,6 @@ for($i = 0; $i < $size; $i++) {
     <!-- ## START: Custom CSS Area ## -->
     <?php include 'assets/includes/custom-css.htm'; ?>
     <!-- ## END: Custom CSS Area ## -->
-
-    <!-- ## START: Custom JavaScript Area ## -->
-    <?php include 'assets/includes/custom-js.htm'; ?>
-    <!-- ## START: Custom JavaScript Area ## -->
 </head>
 <body>
 
@@ -247,6 +243,10 @@ for($i = 0; $i < $size; $i++) {
     <script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.js"></script>
 
     <script src = "<?php echo $scriptPathFromWebRoot; ?>assets/displaycase-scripts.js" defer></script>
+
+    <!-- ## START: Custom JavaScript Area ## -->
+    <?php include 'assets/includes/custom-js.htm'; ?>
+    <!-- ## START: Custom JavaScript Area ## -->
 
     <?php if (!$hideJsonData): ?>
     <script> 
